@@ -14,10 +14,4 @@ class Posts extends Model
         'comments',
         'story_id',
     ];
-
-    // public function user()
-    // {
-    //     return $this->belongsTo(ModelsRegistration::class);
-    // }
-
 }

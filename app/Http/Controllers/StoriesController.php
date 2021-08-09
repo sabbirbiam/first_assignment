@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Registration;
 use App\Models\Stories;
 use Illuminate\Http\Request;
 
@@ -39,6 +40,25 @@ class StoriesController extends Controller
     {
         //
         // return $request;
+
+        if (!isset($request->user_id)) {
+            return response()->json(array(
+                'code' => 409,
+                'status' => 0,
+                'message' => 'User Id is mandatory'
+            ));
+        }
+
+        $user = Registration::where('id', $request->user_id)->first();
+
+        if (!isset($user->id)) {
+            return response()->json(array(
+                'code' => 409,
+                'status' => 0,
+                'message' => 'User Not Found'
+            ));
+        }
+
         $data['title'] = $request->title ?? "";
         $data['story'] = $request->story ?? "";
         $data['tags'] = $request->tags ?? "";
@@ -120,6 +140,24 @@ class StoriesController extends Controller
         //
 
         $stories = Stories::find($id);
+
+        if (!isset($request->user_id)) {
+            return response()->json(array(
+                'code' => 409,
+                'status' => 0,
+                'message' => 'User Id is mandatory'
+            ));
+        }
+
+        $user = Registration::where('id', $request->user_id)->first();
+
+        if (!isset($user->id)) {
+            return response()->json(array(
+                'code' => 409,
+                'status' => 0,
+                'message' => 'User Not Found'
+            ));
+        }
 
         if (!$stories) {
             $response = [

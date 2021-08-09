@@ -15,7 +15,7 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        return csrf_token(); 
+        // return csrf_token(); 
         $registration = ModelsRegistration::with(['stories'])->get();
 
         return response()->json($registration);
