@@ -163,24 +163,24 @@ class RegistrationController extends Controller
             ], 400);
         }
 
-        if (!isset($request->email)) {
-            return response()->json(array(
-                'code' => 409,
-                'status' => 0,
-                'message' => 'E-Mail Cannot be empty'
-            ));
-        }
+        // if (!isset($request->email)) {
+        //     return response()->json(array(
+        //         'code' => 409,
+        //         'status' => 0,
+        //         'message' => 'E-Mail Cannot be empty'
+        //     ));
+        // }
 
-        if ($request->email != null) {
-            $reg = ModelsRegistration::where('email', $request->email)->first();
-            if ($reg) {
-                return response()->json(array(
-                    'code' => 409,
-                    'status' => 0,
-                    'message' => 'This email has been taken. Please try another one.'
-                ));
-            }
-        }
+        // if ($request->email != null) {
+        //     $reg = ModelsRegistration::where('email', $request->email)->first();
+        //     if ($reg) {
+        //         return response()->json(array(
+        //             'code' => 409,
+        //             'status' => 0,
+        //             'message' => 'This email has been taken. Please try another one.'
+        //         ));
+        //     }
+        // }
 
         $registration->name = $request->name ?? $registration->name;
         $registration->email = $request->email ?? $registration->email;
