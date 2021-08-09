@@ -141,23 +141,23 @@ class StoriesController extends Controller
 
         $stories = Stories::find($id);
 
-        if (!isset($request->user_id)) {
-            return response()->json(array(
-                'code' => 409,
-                'status' => 0,
-                'message' => 'User Id is mandatory'
-            ));
-        }
+        // if (!isset($request->user_id)) {
+        //     return response()->json(array(
+        //         'code' => 409,
+        //         'status' => 0,
+        //         'message' => 'User Id is mandatory'
+        //     ));
+        // }
 
-        $user = Registration::where('id', $request->user_id)->first();
+        // $user = Registration::where('id', $request->user_id)->first();
 
-        if (!isset($user->id)) {
-            return response()->json(array(
-                'code' => 409,
-                'status' => 0,
-                'message' => 'User Not Found'
-            ));
-        }
+        // if (!isset($user->id)) {
+        //     return response()->json(array(
+        //         'code' => 409,
+        //         'status' => 0,
+        //         'message' => 'User Not Found'
+        //     ));
+        // }
 
         if (!$stories) {
             $response = [
