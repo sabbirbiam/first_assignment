@@ -22,7 +22,17 @@ Route::get('/234', function () {
     return 44;
 });
 
+Route::get('/login', 'LoginController@index');
+Route::post('/login', 'LoginController@verify');
+
+Route::get('/admin', 'AdminController@index');
+Route::post('/admin', 'AdminController@verify');
+
 // Route::apiResource('registration', RegistrationController::class);
-Route::apiResource('registration', 'RegistrationController');
 Route::apiResource('stories', 'StoriesController');
 Route::apiResource('posts', 'PostsController');
+
+Route::group(['middleware' => ['adminSess']],function(){ 
+    Route::apiResource('registration', 'RegistrationController');
+});
+
