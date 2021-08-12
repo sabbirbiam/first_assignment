@@ -29,7 +29,7 @@ Route::get('/admin', 'AdminController@index');
 Route::post('/admin', 'AdminController@verify');
 
 // Route::apiResource('registration', RegistrationController::class);
-Route::apiResource('posts', 'PostsController');
+// Route::apiResource('posts', 'PostsController');
 
 Route::get('/home/create', 'HomeController@create');
 Route::post('/home/create', 'HomeController@store');
@@ -41,4 +41,6 @@ Route::group(['middleware' => ['adminSess']], function () {
     Route::apiResource('registration', 'RegistrationController');
 
     Route::apiResource('stories', 'StoriesController');
+
+    Route::delete('/posts/delete/{id}', 'PostsController@destroy');
 });

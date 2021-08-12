@@ -16,7 +16,9 @@ class StoriesController extends Controller
     public function index()
     {
         //
-        $stories = Stories::with(['user'])->get();
+        // return view('stories.index');
+        $stories = Stories::with(['user','comment'])->get();
+        return view('stories.index', ['stories' => $stories]);
         return response()->json($stories);
     }
 

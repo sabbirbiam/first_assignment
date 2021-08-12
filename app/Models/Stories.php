@@ -21,4 +21,8 @@ class Stories extends Model
         return $this->belongsTo(ModelsRegistration::class);
     }
 
+    public function comment()
+    {
+        return $this->hasMany(Posts::class, "story_id");
+    }
 }

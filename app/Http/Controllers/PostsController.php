@@ -128,8 +128,11 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
+        // return 555;
         //
         $posts = Posts::find($id)->delete();
+
+        return redirect('/stories');
 
         if (!$posts) {
             $response = [

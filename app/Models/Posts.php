@@ -14,4 +14,10 @@ class Posts extends Model
         'comments',
         'story_id',
     ];
+
+    public function story()
+    {
+        return $this->belongsTo(Stories::class);
+    }
+
 }
