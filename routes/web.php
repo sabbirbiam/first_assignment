@@ -41,6 +41,8 @@ Route::group(['middleware' => ['adminSess']], function () {
     Route::apiResource('registration', 'RegistrationController');
 
     Route::apiResource('stories', 'StoriesController');
+    
+    Route::post('/stories/search', 'StoriesController@search');
 
     Route::delete('/posts/delete/{id}', 'PostsController@destroy');
 });

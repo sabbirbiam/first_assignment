@@ -17,11 +17,21 @@ class StoriesController extends Controller
     {
         //
         // return view('stories.index');
-        $stories = Stories::with(['user','comment'])->get();
+        $stories = Stories::with(['user', 'comment'])->get();
         return view('stories.index', ['stories' => $stories]);
         return response()->json($stories);
     }
 
+    public function search(Request $request)
+    {
+        //
+        // return $request;
+        $stories = Stories::with(['user', 'comment'])
+            ->where('title', 'like', '%' . $request->username . '%')
+            ->orWhere('tags', 'like', '%' . $request->username2 . '%')
+            ->get();
+        return view('stories.index', ['stories' => $stories]);
+    }
     /**
      * Show the form for creating a new resource.
      *

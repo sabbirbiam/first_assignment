@@ -55,6 +55,23 @@
 
 	<h2 style="margin-left: 45%; font-family: 'Comic Sans MS', cursive, sans-serif;">List of Product</h2>
 
+	<form method="post" action="/stories/search">
+		{{csrf_field()}}
+		<div class="form-group">
+			<input type="text" name="username" class="form-control" id="uname" placeholder="User_name">
+		</div>
+
+		<div class="form-group">
+			<input type="text" name="username2" class="form-control" id="uname" placeholder="User_name">
+		</div>
+
+		<div class="form-group">
+			<input type="text" name="username1" class="form-control" id="uname" placeholder="User_name">
+		</div>
+
+		<button type="submit" value="Login" class="btn btn-default">Search</button>
+	</form>
+
 	<div class="container">
 
 		<br />
