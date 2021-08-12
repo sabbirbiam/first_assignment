@@ -29,10 +29,16 @@ Route::get('/admin', 'AdminController@index');
 Route::post('/admin', 'AdminController@verify');
 
 // Route::apiResource('registration', RegistrationController::class);
-Route::apiResource('stories', 'StoriesController');
 Route::apiResource('posts', 'PostsController');
 
-Route::group(['middleware' => ['adminSess']],function(){ 
-    Route::apiResource('registration', 'RegistrationController');
-});
+Route::get('/home/create', 'HomeController@create');
+Route::post('/home/create', 'HomeController@store');
 
+Route::group(['middleware' => ['adminSess']], function () {
+
+    Route::get('/admin/home', 'AdminController@adminhome');
+
+    Route::apiResource('registration', 'RegistrationController');
+
+    Route::apiResource('stories', 'StoriesController');
+});
