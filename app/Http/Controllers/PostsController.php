@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateCommentRequest;
 use App\Models\Posts;
 use Illuminate\Http\Request;
 
@@ -33,15 +34,24 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateCommentRequest $request)
     {
         //
+        // return $request;
+
+        if (!($request->session()->has('register')) && $request->session()->get('register')->id) {
+            return "stop no session";
+        }
 
         $data['comments'] = $request->comments ?? "";
         $data['user_id'] = $request->user_id ?? null;
         $data['story_id'] = $request->story_id ?? null;
+        $data['user_id'] = $request->session()->get('register')->id ?? null;
+
 
         $success = Posts::create($data);
+        return redirect('/user/stories');
+
 
         if ($success) {
             return response()->json(array(
@@ -155,5 +165,14 @@ class PostsController extends Controller
         return response()->json([
             'response' => $response
         ], 200);
+    }
+
+    public function postDeleteByUser($id)
+    {
+        // return 555;
+        //
+        $posts = Posts::find($id)->delete();
+
+        return redirect('/user/stories');
     }
 }

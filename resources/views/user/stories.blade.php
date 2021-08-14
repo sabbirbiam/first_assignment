@@ -82,18 +82,18 @@
 		@foreach($stories as $story)
 		<!-- <div class="container-fluid"> -->
 		<table id="user_data" class="table table-bordered table-striped">
-			<tr> 
-			@if(Session::get('register'))
-				<td> 
+			<tr>
+				@if(Session::get('register'))
+				<td>
 					{{Session::get('register')->id}}
-				<div class="div">
-					
-				Posted By {{$story->user["name"]}} {{" ---  "}} Post Date: {{$story->user["created_at"]}}
-				</div>
-				 
+					<div class="div">
+
+						Posted By {{$story->user["name"]}} {{" ---  "}} Post Date: {{$story->user["created_at"]}}
+					</div>
+
 
 				</td>
-			@endif
+				@endif
 			</tr>
 
 			<tr>
@@ -110,23 +110,48 @@
 
 			<tr>
 				<td>Comments:
-					_________
 					</br>
 					@foreach($story->comment as $commnet)
 					{{$commnet->comments ?$commnet->comments : "--"}}
 					@if(Session::get('register')->id == $commnet->user_id)
-					<form method="post" action="/posts/delete/{{$commnet->id}}">
+					<form method="post" action="/userposts/delete/{{$commnet->id}}">
 						{{csrf_field()}}
 						<input type="hidden" name="_method" value="delete">
 
 						<input style="background-color: red; color: white;" class="btn" type="submit" value="Delete">
 					</form>
 					@endif
+
+
 					<!-- <a style="color: red;" href="/posts/delete/{{$commnet->id}}"><i class="fas fa-trash-alt"></i></a> -->
 					</br>
 					@endforeach
+
+					<form method="post" action="/save">
+						{{csrf_field()}}
+						<input type="hidden" name="story_id" id="story_id" value="{{$story->id}}">
+						<input type="text" name="comments" id="comments" placeholder="Add New Comment">
+
+						@if($errors->any())
+						<div class="form-group">
+							<div class="alert alert-danger">
+								<ul>
+									<li>
+										{{$errors->first('comments')}}
+									</li>
+								</ul>
+							</div>
+						</div>
+						@endif
+
+						<input style="background-color: green; color: white;" class="btn" type="submit" value="Save">
+					</form>
 				</td>
 				<!-- <td>Comments 1</td> -->
+			</tr>
+
+			<tr>
+
 			</tr>
 
 			@if(Session::get('register')->id == $story->user_id)

@@ -55,4 +55,9 @@ Route::group(['middleware' => ['userSess']],function(){
     Route::get('/user/stories/create', 'UserController@create');
 
 	Route::post('/userstories', 'UserController@store');
+
+    Route::post('/save', 'PostsController@store');
+
+    Route::delete('/userposts/delete/{id}', 'PostsController@postDeleteByUser');
+
 });
