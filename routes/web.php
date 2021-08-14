@@ -36,6 +36,8 @@ Route::post('/admin', 'AdminController@verify');
 Route::get('/home/create', 'HomeController@create');
 Route::post('/home/create', 'HomeController@store');
 
+Route::get('/home/seestories', 'HomeController@seestories');
+
 Route::group(['middleware' => ['adminSess']], function () {
 
     Route::get('/admin/home', 'AdminController@adminhome');
@@ -43,27 +45,29 @@ Route::group(['middleware' => ['adminSess']], function () {
     Route::apiResource('registration', 'RegistrationController');
 
     Route::apiResource('stories', 'StoriesController');
-    
+
     Route::post('/stories/search', 'StoriesController@search');
 
     Route::delete('/posts/delete/{id}', 'PostsController@destroy');
 
-	Route::get('/markasunlisted/{id}', 'StoriesController@markasunlisted');
+    Route::get('/markasunlisted/{id}', 'StoriesController@markasunlisted');
 
-	Route::get('/userInfo', 'AdminController@userinfo');
+    Route::get('/userInfo', 'AdminController@userinfo');
 
-	Route::get('/userStatus/{id}', 'AdminController@userStatus');
+    Route::get('/userStatus/{id}', 'AdminController@userStatus');
 
+    Route::get('/home/createadmin', 'AdminController@create');
+    Route::post('/home/createadmin', 'AdminController@store');
 });
 
-Route::group(['middleware' => ['userSess']],function(){
+Route::group(['middleware' => ['userSess']], function () {
 
     // Route::get('/admin/home', 'UserController@userhome');
     Route::get('/user/stories', 'UserController@index');
 
     Route::get('/user/stories/create', 'UserController@create');
 
-	Route::post('/userstories', 'UserController@store');
+    Route::post('/userstories', 'UserController@store');
 
     Route::post('/save', 'PostsController@store');
 
@@ -71,14 +75,13 @@ Route::group(['middleware' => ['userSess']],function(){
 
     Route::get('/user/stories/edit/{id}', 'UserController@edit');
 
-	Route::put('/updatestories/{id}', 'UserController@updatestory');
+    Route::put('/updatestories/{id}', 'UserController@updatestory');
 
     Route::delete('/user/stories/{id}', 'UserController@storiesDelete');
 
     Route::get('/user/info/edit/{id}', 'UserController@editUser');
 
-	Route::put('/updateuser/{id}', 'UserController@updateuser');
+    Route::put('/updateuser/{id}', 'UserController@updateuser');
 
     Route::get('/user/home', 'LoginController@userhome');
-
 });

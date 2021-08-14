@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateUserRequest;
+use App\Models\Stories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,7 +19,7 @@ class HomeController extends Controller
 
     public function create()
     {
-    	return view('home.create');
+    	return view('admin.create');
     }
 
      public function store(CreateUserRequest $request)
@@ -31,11 +32,24 @@ class HomeController extends Controller
     		'email' => $request->email,
     		'username' => $request->username,
     		'password' => $request->password,
-            'type' => $request->type ?? "user"
+            'type' => $request->type ?? "user",
+            'status' => 1
     	];
 
     	DB::table('registration')
     		->insert($params);
     	return redirect('/');
     }
+
+    public function seestories()
+    {
+        $stories = Stories::with(['user'])
+        ->orderBy('id', 'DESC')
+        ->get();
+        // $stories = Stories::with(['user']);
+    // return $stories;
+    return view('home.stories', ['stories' => $stories]);
+    return response()->json($stories);
+    }
+    
 }

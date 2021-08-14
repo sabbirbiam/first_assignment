@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="{{asset('css/styles.css')}}">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<style>
+	<!-- <style>
 		body {
 			margin: 0;
 			padding: 0;
@@ -26,7 +26,7 @@
 			border-radius: 5px;
 			margin-top: 25px;
 		}
-	</style>
+	</style> -->
 </head>
 
 <body>
@@ -41,59 +41,74 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/admin/home">Home</a></li>
-					<li><a href="/home/createadmin">Create New User</a></li>
+					<li><a href="/user/stories/create">Create New Story</a></li>
+
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 
-					<li><a href="/logout">LogOut</a></li>
+					<!-- <li><a href="/logout">LogOut</a></li> -->
 
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<h2 style="margin-left: 45%; font-family: 'Comic Sans MS', cursive, sans-serif;">List of User</h2>
+	<h2 style="margin-left: 45%; font-family: 'Comic Sans MS', cursive, sans-serif;">List of Stories</h2>
 
 	<div class="container">
 
 		<br />
 		<br />
 
+		<!-- <table id="user_data" class="table table-bordered table-striped"> -->
+
+		@foreach($stories as $story)
+		<!-- <div class="container-fluid"> -->
 		<table id="user_data" class="table table-bordered table-striped">
 			<tr>
+				 
+				<td>
+					 
+					<div class="div">
 
-				<th width="1%">User ID</th>
-				<th width="10%"> Name</th>
-				<th width="25%">Email</th>
-				<th width="15%">User_Name</th>
-				<th width="10%">Phone</th>
-				<th width="8%">Gender</th>
-				<th width="2%">User Status</th>
+						Posted By {{$story->user["name"]}} {{" ---  "}} Post Date: {{$story->user["created_at"]}}
+					</div>
 
+
+				</td> 
 			</tr>
-			@foreach($userlist as $usr)
+
 			<tr>
+				<td>Story Title: {{$story->title}}</td>
+			</tr>
 
-				<td align="center" width="1%">{{$usr->id}}</td>
-				<td align="center" width="10%">{{$usr->name}}</td>
-				<td align="center" width="20%">{{$usr->email}}</td>
-				<td align="center" width="10%">{{$usr->username}}</td>
-				<td align="center" width="15%">{{$usr->phone}}</td>
-				<td align="center" width="8%">{{$usr->gender == 1 ? "Female": "Male"}}</td>
-				<td align="center" width="7%">
+			<tr>
+				<td>Story Section: {{$story->section}}</td>
+			</tr>
 
-					<a style="color: blue;" href="/userStatus/{{$usr->id}}">
-					@if($usr->status == 0)
-					Unblock User
-					@endif
-					@if($usr->status != 0)
-					Block User
-					@endif
-					</a> 
+			<tr>
+				<td>Story Tags: {{$story->tags ? $story->tags:"--"}}</td>
+			</tr>
+
+			<tr>
+				<td>Story story: {{$story->story ? $story->story:"--"}}</td>
+			</tr>
+
+			<tr>
+				<td>Story Picture:(Image Caption: <b>{{$story->storycaption}}</b>)
+				  
+				<img src="/pic/{{$story->storyimage}}" style="height: 150px; width: 150px;border-radius:25%;" />
 				</td>
 			</tr>
-			@endforeach
+
+			<tr>
+
+			</tr>
+
+
 		</table>
+		@endforeach
+		<!-- </table> -->
 
 	</div>
 </body>

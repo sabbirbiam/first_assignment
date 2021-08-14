@@ -25,7 +25,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">See Blog</a></li>
+        <li class="active"><a href="/home/seestories">See Blog</a></li>
         <li><a href="/admin">About Admin</a></li>
         
       </ul>
