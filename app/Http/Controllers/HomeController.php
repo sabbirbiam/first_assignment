@@ -31,7 +31,7 @@ class HomeController extends Controller
     		'email' => $request->email,
     		'username' => $request->username,
     		'password' => $request->password,
-            'type' => $request->type
+            'type' => $request->type ?? "user"
     	];
 
     	DB::table('registration')

@@ -14,6 +14,10 @@ class Stories extends Model
         'title',
         'story',
         'tags',  
+        'section',  
+        'storyimage',  
+        'storycaption',  
+        'blocked',  
     ];
 
     public function user()

@@ -15,26 +15,26 @@ class LoginController extends Controller
 
     public function verify(Request $request)
     {
-        return $request;
+        // return $request;
         $u = DB::table('registration') 
-            ->where('userName', $request->username)
+            ->where('username', $request->username)
             ->where('password', $request->password)
-            // ->where('type', '=', 'user')
+            ->where('type', '=', 'user')
             ->first();
             
 
-    	// if(!$u)
-    	// {
-        //     $request->session()->flash('message', 'Invalid username or password');
-    	// 	return redirect('/login');
-    	// }
-    	// else
-    	// {
+    	if(!$u)
+    	{
+            $request->session()->flash('message', 'Invalid username or password');
+    		return redirect('/login');
+    	}
+    	else
+    	{
                
-        //  $request->session()->put('register', $u);
-         
-    	// 	return redirect('/home');
-    		
-    	// }
+         $request->session()->put('register', $u);
+         return view('user.home')
+         ->with('de', $u);;
+    		// return redirect('/home');
+    	}
     }
 }

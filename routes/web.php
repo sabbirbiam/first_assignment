@@ -46,3 +46,13 @@ Route::group(['middleware' => ['adminSess']], function () {
 
     Route::delete('/posts/delete/{id}', 'PostsController@destroy');
 });
+
+Route::group(['middleware' => ['userSess']],function(){
+
+    // Route::get('/admin/home', 'UserController@userhome');
+    Route::get('/user/stories', 'UserController@index');
+
+    Route::get('/user/stories/create', 'UserController@create');
+
+	Route::post('/userstories', 'UserController@store');
+});
