@@ -83,10 +83,17 @@
 		@foreach($stories as $story)
 		<!-- <div class="container-fluid"> -->
 		<table id="user_data" class="table table-bordered table-striped">
+
+		    <tr>
+				<td>
+					@if($story->blocked == 0)
+					Your post is blocked by admin
+					@endif
+				</td>
+			</tr>
 			<tr>
 				@if(Session::get('register'))
 				<td>
-					{{Session::get('register')->id}}
 					<div class="div">
 
 						Posted By {{$story->user["name"]}} {{" ---  "}} Post Date: {{$story->user["created_at"]}}
@@ -139,25 +146,7 @@
 					</br>
 					@endforeach
 
-					<form method="post" action="/save">
-						{{csrf_field()}}
-						<input type="hidden" name="story_id" id="story_id" value="{{$story->id}}">
-						<input type="text" name="comments" id="comments" placeholder="Add New Comment">
-
-						@if($errors->any())
-						<div class="form-group">
-							<div class="alert alert-danger">
-								<ul>
-									<li>
-										{{$errors->first('comments')}}
-									</li>
-								</ul>
-							</div>
-						</div>
-						@endif
-
-						<input style="background-color: green; color: white;" class="btn" type="submit" value="Save">
-					</form>
+					
 				</td>
 				<!-- <td>Comments 1</td> -->
 			</tr>

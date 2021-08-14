@@ -36,7 +36,6 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/admin/home">Home</a></li>
-					<li><a href="/product">Back</a></li>
 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -58,7 +57,20 @@
 			<table>
 				<tr>
 					<td>Story Title</td>
-					<td><input type="text" name="title"></td>
+					<td>
+						<input type="text" name="title">
+						@if($errors->any())
+						<div class="form-group">
+							<div class="alert alert-danger">
+								<ul>
+									<li>
+										{{$errors->first('title')}}
+									</li>
+								</ul>
+							</div>
+						</div>
+						@endif
+					</td>
 				</tr>
 				<tr>
 					<td>Story</td>

@@ -41,7 +41,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/admin/home">Home</a></li>
-					<li><a href="/user/stories/create">Create New Story</a></li>
+					<!-- <li><a href="/user/stories/create">Create New Story</a></li> -->
 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">

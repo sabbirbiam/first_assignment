@@ -84,4 +84,6 @@ Route::group(['middleware' => ['userSess']], function () {
     Route::put('/updateuser/{id}', 'UserController@updateuser');
 
     Route::get('/user/home', 'LoginController@userhome');
+
+    Route::get('/user/userstories', 'UserController@userstories');
 });

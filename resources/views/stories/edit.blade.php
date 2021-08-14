@@ -32,7 +32,6 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/admin/home">Home</a></li>
-        <li><a href="/product">Back</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
        
@@ -75,7 +74,6 @@
 			</tr>
 			<tr>
 				<td>Story Image</td>
-				<!-- <td><img src="/pic/{{$story->storyimage}}" style="height: 150px; width: 150px;border-radius:25%; margin-top: 5px;" /><a href="/product/{{$story->id}}/img" class="btn" style="background-color: black; margin-left: 5px; color: white;">Image Update</a></td> -->
 				<td><img src="/pic/{{$story->storyimage}}" style="height: 150px; width: 150px;border-radius:25%;" /></br><input type="file" name="storyimage" value="" required=""></td>
 			</tr>
 			<tr>

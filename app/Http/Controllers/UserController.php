@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateStoryRequest;
 use App\Models\Posts;
 use App\Models\Stories;
 use Illuminate\Http\Request;
@@ -19,8 +20,22 @@ class UserController extends Controller
     {
         //
         // return view('stories.index');
-        $stories = Stories::with(['user', 'comment'])->get();
+        $stories = Stories::with(['user', 'comment'])
+        ->orderBy('id', 'DESC')
+        ->get();
         return view('user.stories', ['stories' => $stories]);
+        return response()->json($stories);
+    }
+
+    public function userstories(Request $request)
+    {
+        //
+        // return view('stories.index');
+        $stories = Stories::with(['user', 'comment'])
+        ->where('user_id', $request->session()->get('register')->id)
+        ->orderBy('id', 'DESC')
+        ->get();
+        return view('user.userstories', ['stories' => $stories]);
         return response()->json($stories);
     }
 
@@ -30,7 +45,7 @@ class UserController extends Controller
         return view('user.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateStoryRequest $request)
     {
         if (!($request->session()->has('register')) && $request->session()->get('register')->id) {
             return "stop no session";
