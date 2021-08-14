@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Posts;
 use App\Models\Stories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -90,7 +91,57 @@ class UserController extends Controller
 
     public function storiesDelete($id) 
     {
-        return $id;
+        // return $id;
+
+        $posts =  Posts::where('story_id', $id)->get();
+        foreach ($posts as $child) {
+            $child->delete();
+        }
+        // return $posts;
+        $delete = Stories::find($id)->delete();
+
+        return redirect('/user/stories');
+        
+    }
+
+    public function editUser($id)
+    {
+        // return $id;
+        $user = DB::table('registration')
+            ->where('id', $id)
+            ->first();
+        //  dd($user);
+        return view('user.edit')
+            ->with('user', $user);
+    }
+
+    public function updateuser(Request $request, $id)
+    {
+        // return $request;
+        // return $id;
+
+
+        if (!($request->session()->has('register')) && $request->session()->get('register')->id) {
+            return "stop no session";
+        }
+
+        $stroy = DB::table('registration')
+        ->where('id', $id)
+        ->first();
+
+        // dd($stroy);
+
+        //  $data = Session::get('register');
+        $data['name'] = $request->name ?? $stroy->name;
+        $data['email'] = $request->email ?? $stroy->eamil;
+        $data['dob'] = $request->dob ?? $stroy->dob;
+        $data['phone'] = $request->phone ?? $stroy->phone; 
+
+        DB::table('registration')
+        ->where('id', $id)
+        ->update($data);
+
+        return redirect('/home');
     }
 
 }

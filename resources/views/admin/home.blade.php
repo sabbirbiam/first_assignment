@@ -19,14 +19,13 @@
         <div class="container-fluid">
             <div class="navbar-header">
 
-                <a class="navbar-brand" href="#">Bolg</a>
+                <a class="navbar-brand" href="#">Blogs</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/">Home</a></li>
                     <li><a href="/stories">Stories</a></li>
                     <li><a href="/userInfo">User Information</a></li>
-                    <li><a href="/orderInfo">Order Information</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

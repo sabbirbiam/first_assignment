@@ -36,7 +36,7 @@
 		<div class="container-fluid">
 			<div class="navbar-header">
 
-				<a class="navbar-brand" href="#">Dietcart</a>
+				<a class="navbar-brand" href="#">Blogs</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
@@ -53,7 +53,7 @@
 		</div>
 	</nav>
 
-	<h2 style="margin-left: 45%; font-family: 'Comic Sans MS', cursive, sans-serif;">List of Blog</h2>
+	<h2 style="margin-left: 45%; font-family: 'Comic Sans MS', cursive, sans-serif;">List of Stories</h2>
 
 	<!-- <form method="post" action="/stories/search">
 		{{csrf_field()}}
@@ -97,15 +97,26 @@
 			</tr>
 
 			<tr>
-				<td>Post Title: {{$story->title}}</td>
+				<td>Story Title: {{$story->title}}</td>
 			</tr>
 
 			<tr>
-				<td>Post Tags: {{$story->tags ? $story->tags:"--"}}</td>
+				<td>Story Section: {{$story->section}}</td>
 			</tr>
 
 			<tr>
-				<td>Post story: {{$story->story ? $story->story:"--"}}</td>
+				<td>Story Tags: {{$story->tags ? $story->tags:"--"}}</td>
+			</tr>
+
+			<tr>
+				<td>Story story: {{$story->story ? $story->story:"--"}}</td>
+			</tr>
+
+			<tr>
+				<td>Story Picture:(Image Caption: <b>{{$story->storycaption}}</b>)
+				  
+				<img src="/pic/{{$story->storyimage}}" style="height: 150px; width: 150px;border-radius:25%;" />
+				</td>
 			</tr>
 
 			<tr>

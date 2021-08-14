@@ -22,6 +22,8 @@ Route::get('/234', function () {
     return 44;
 });
 
+Route::get('/logout', 'LogoutController@index');
+
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@verify');
 
@@ -66,7 +68,11 @@ Route::group(['middleware' => ['userSess']],function(){
 
     Route::delete('/user/stories/{id}', 'UserController@storiesDelete');
 
+    Route::get('/user/info/edit/{id}', 'UserController@editUser');
 
+	Route::put('/updateuser/{id}', 'UserController@updateuser');
+
+    Route::get('/user/home', 'LoginController@userhome');
 
 
 });

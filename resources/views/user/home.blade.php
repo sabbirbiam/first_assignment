@@ -19,15 +19,13 @@
         <div class="container-fluid">
             <div class="navbar-header">
 
-                <a class="navbar-brand" href="#">Bolg</a>
+                <a class="navbar-brand" href="#">Blogs</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/">Home</a></li>
                     <li><a href="/user/stories">Stories</a></li>
                     <li><a href="/userInfo">User Information</a></li>
-                    <li><a href="/orderInfo">Order Information</a></li>
-
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/logout">LogOut</a></li>
@@ -113,6 +111,12 @@
                                         <td class="text-primary">
                                             {{$de->email}}
                                         </td>
+                                    </tr>
+
+                                    <tr>
+                                    <tr>
+
+                                       <td> <a style="color: green;" href="/user/info/edit/{{$de->id}}">Edit</i></a></td>
                                     </tr>
 
 
