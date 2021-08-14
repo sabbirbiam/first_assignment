@@ -47,6 +47,13 @@ Route::group(['middleware' => ['adminSess']], function () {
     Route::post('/stories/search', 'StoriesController@search');
 
     Route::delete('/posts/delete/{id}', 'PostsController@destroy');
+
+	Route::get('/markasunlisted/{id}', 'StoriesController@markasunlisted');
+
+	Route::get('/userInfo', 'AdminController@userinfo');
+
+	Route::get('/userStatus/{id}', 'AdminController@userStatus');
+
 });
 
 Route::group(['middleware' => ['userSess']],function(){
@@ -73,6 +80,5 @@ Route::group(['middleware' => ['userSess']],function(){
 	Route::put('/updateuser/{id}', 'UserController@updateuser');
 
     Route::get('/user/home', 'LoginController@userhome');
-
 
 });

@@ -41,7 +41,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/admin/home">Home</a></li>
-					<li><a href="/product/create">Create New Product</a></li>
+					<!-- <li><a href="/product/create">Create New Product</a></li> -->
 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -101,7 +101,18 @@
 			</tr>
 
 			<tr>
+				<td>Story Section: {{$story->section}}</td>
+			</tr>
+
+			<tr>
 				<td>Post story: {{$story->story ? $story->story:"--"}}</td>
+			</tr>
+
+			<tr>
+				<td>Story Picture:(Image Caption: <b>{{$story->storycaption}}</b>)
+
+					<img src="/pic/{{$story->storyimage}}" style="height: 150px; width: 150px;border-radius:25%;" />
+				</td>
 			</tr>
 
 			<tr>
@@ -124,8 +135,15 @@
 			</tr>
 
 			<tr>
-				<a style="color: green;">Block</i></a> |
-				<a style="color: red;">Delete</i></a>
+				<a style="color: green;" href="/markasunlisted/{{$story->id}}">
+					@if($story->blocked == 0)
+					Mark As Listed
+					@endif
+					@if($story->blocked == 1)
+					Mark As Unlisted
+					@endif
+				</a>
+				<!-- <a style="color: red;">Delete</a> -->
 			</tr>
 
 		</table>

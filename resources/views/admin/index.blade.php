@@ -30,7 +30,7 @@
         <li><form class="form-inline set" method="post">
         <div class="form-group">
           {{csrf_field()}}
-          <input type="text" name="username" class="form-control" id="uname" placeholder="Admin_name">
+          <input type="text" name="username" class="form-control" id="uname" placeholder="Admin username">
         </div>
         <div class="form-group">
           

@@ -49,4 +49,39 @@ class AdminController extends Controller
         return view('admin.home')
             ->with('de', $value);
     }
+
+    public function userinfo()
+    {
+        $userlist = DB::table('registration')
+            ->where('type', '=', 'user')
+            ->get();
+
+        // return $userlist;
+        return view('admin.userinfo')
+            ->with('userlist', $userlist);
+    }
+
+    public function userStatus($id)
+    {
+        // return $request;
+        // return $id;
+
+
+        $stroy = DB::table('registration')
+            ->where('id', $id)
+            ->first();
+
+
+        if ($stroy->status == 0) {
+            $data['status'] = 1;
+        } else {
+            $data['status'] = 0;
+        }
+
+        DB::table('registration')
+            ->where('id', $id)
+            ->update($data);
+
+        return redirect('/userInfo');
+    }
 }

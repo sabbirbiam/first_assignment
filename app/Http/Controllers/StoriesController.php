@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Registration;
 use App\Models\Stories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StoriesController extends Controller
 {
@@ -17,7 +18,9 @@ class StoriesController extends Controller
     {
         //
         // return view('stories.index');
-        $stories = Stories::with(['user', 'comment'])->get();
+        $stories = Stories::with(['user', 'comment'])
+            ->orderBy('id', 'DESC')
+            ->get();
         return view('stories.index', ['stories' => $stories]);
         return response()->json($stories);
     }
@@ -31,6 +34,7 @@ class StoriesController extends Controller
             ->orWhere('story', 'like', '%' . $request->story . '%')
             ->orWhere('section', 'like', '%' . $request->section . '%')
             ->orWhere('tags', 'like', '%' . $request->tags . '%')
+            ->orderBy('id', 'DESC')
             ->get();
         return view('stories.index', ['stories' => $stories]);
     }
@@ -238,4 +242,30 @@ class StoriesController extends Controller
             'response' => $response
         ], 200);
     }
+
+    public function markasunlisted($id)
+    {
+        // return $request;
+        // return $id;
+
+
+        $stroy = DB::table('stories')
+            ->where('id', $id)
+            ->first();
+
+
+        if ($stroy->blocked == 0) {
+            $data['blocked'] = 1;
+        } else {
+            $data['blocked'] = 0;
+        }
+
+        DB::table('stories')
+            ->where('id', $id)
+            ->update($data);
+
+        return redirect('/stories');
+    }
+
+  
 }
