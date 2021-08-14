@@ -36,7 +36,7 @@
 		<div class="container-fluid">
 			<div class="navbar-header">
 
-				<a class="navbar-brand" href="#">Dietcart</a>
+				<a class="navbar-brand" href="#">Blogs</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
@@ -53,20 +53,24 @@
 		</div>
 	</nav>
 
-	<h2 style="margin-left: 45%; font-family: 'Comic Sans MS', cursive, sans-serif;">List of Product</h2>
+	<h2 style="margin-left: 45%; font-family: 'Comic Sans MS', cursive, sans-serif;">List of Stories</h2>
 
 	<form method="post" action="/stories/search">
 		{{csrf_field()}}
 		<div class="form-group">
-			<input type="text" name="username" class="form-control" id="uname" placeholder="User_name">
+			<input type="text" name="title" class="form-control" id="title" placeholder="Search by title">
 		</div>
 
 		<div class="form-group">
-			<input type="text" name="username2" class="form-control" id="uname" placeholder="User_name">
+			<input type="text" name="story" class="form-control" id="story" placeholder="Search By Story">
 		</div>
 
 		<div class="form-group">
-			<input type="text" name="username1" class="form-control" id="uname" placeholder="User_name">
+			<input type="text" name="section" class="form-control" id="section" placeholder="Search by Section">
+		</div>
+
+		<div class="form-group">
+			<input type="text" name="tags" class="form-control" id="tags" placeholder="Search by tags">
 		</div>
 
 		<button type="submit" value="Login" class="btn btn-default">Search</button>

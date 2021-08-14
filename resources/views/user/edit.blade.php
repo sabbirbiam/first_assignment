@@ -29,7 +29,7 @@
 		<div class="container-fluid">
 			<div class="navbar-header">
 
-				<a class="navbar-brand" href="#">DietCart</a>
+				<a class="navbar-brand" href="#">Blogs</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">

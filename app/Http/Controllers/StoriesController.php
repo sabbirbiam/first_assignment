@@ -27,8 +27,10 @@ class StoriesController extends Controller
         //
         // return $request;
         $stories = Stories::with(['user', 'comment'])
-            ->where('title', 'like', '%' . $request->username . '%')
-            ->orWhere('tags', 'like', '%' . $request->username2 . '%')
+            ->where('title', 'like', '%' . $request->title . '%')
+            ->orWhere('story', 'like', '%' . $request->story . '%')
+            ->orWhere('section', 'like', '%' . $request->section . '%')
+            ->orWhere('tags', 'like', '%' . $request->tags . '%')
             ->get();
         return view('stories.index', ['stories' => $stories]);
     }
