@@ -47,4 +47,50 @@ class UserController extends Controller
         $success = Stories::create($data);
         return redirect('/user/stories');
     }
+
+    public function edit($id)
+    {
+        // return $id;
+        $stroy = DB::table('stories')
+            ->where('id', $id)
+            ->first();
+        return view('stories.edit')
+            ->with('story', $stroy);
+    }
+
+    public function updatestory(Request $request, $id)
+    {
+        // return $request;
+        // return $id;
+
+
+        if (!($request->session()->has('register')) && $request->session()->get('register')->id) {
+            return "stop no session";
+        }
+
+        $stroy = DB::table('stories')
+        ->where('id', $id)
+        ->first();
+
+        //  $data = Session::get('register');
+        $data['title'] = $request->title ?? $stroy->title;
+        $data['story'] = $request->story ?? $stroy->story;
+        $data['tags'] = $request->tags ?? $stroy->tags;
+        $data['section'] = $request->section ?? $stroy->section;
+        $data['storyimage'] = $request->storyimage ?? $stroy->storyimage;;
+        $data['storycaption'] = $request->storycaption ?? $stroy->section;;
+        $data['user_id'] = $request->session()->get('register')->id ?? null;
+
+        DB::table('stories')
+        ->where('id', $id)
+        ->update($data);
+
+        return redirect('/user/stories');
+    }
+
+    public function storiesDelete($id) 
+    {
+        return $id;
+    }
+
 }

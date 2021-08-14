@@ -151,6 +151,8 @@ class StoriesController extends Controller
     {
         //
 
+        return $request;
+
         $stories = Stories::find($id);
 
         // if (!isset($request->user_id)) {

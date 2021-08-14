@@ -60,4 +60,13 @@ Route::group(['middleware' => ['userSess']],function(){
 
     Route::delete('/userposts/delete/{id}', 'PostsController@postDeleteByUser');
 
+    Route::get('/user/stories/edit/{id}', 'UserController@edit');
+
+	Route::put('/updatestories/{id}', 'UserController@updatestory');
+
+    Route::delete('/user/stories/{id}', 'UserController@storiesDelete');
+
+
+
+
 });

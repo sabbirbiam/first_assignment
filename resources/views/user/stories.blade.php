@@ -156,8 +156,14 @@
 
 			@if(Session::get('register')->id == $story->user_id)
 			<tr>
-				<a style="color: green;">Edit</i></a> |
-				<a style="color: red;">Delete</i></a>
+				<a style="color: green;" href="/user/stories/edit/{{$story->id}}">Edit</i></a> |
+				<!-- <a style="color: red;">Delete</i></a> -->
+				<form method="post" action="/user/stories/{{$story->id}}">
+					{{csrf_field()}}
+					<input type="hidden" name="_method" value="delete">
+
+					<input style="background-color: red; color: white;" class="btn" type="submit" value="Delete">
+				</form>
 			</tr>
 			@endif
 
