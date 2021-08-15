@@ -46,6 +46,7 @@ class HomeController extends Controller
     public function seestories()
     {
         $stories = Stories::with(['user'])
+        ->where('blocked', 1)
         ->orderBy('id', 'DESC')
         ->get();
         // $stories = Stories::with(['user']);

@@ -152,6 +152,7 @@ class UserController extends Controller
         $data['email'] = $request->email ?? $stroy->eamil;
         $data['dob'] = $request->dob ?? $stroy->dob;
         $data['phone'] = $request->phone ?? $stroy->phone; 
+        $data['gender'] = $request->gender ?? $stroy->gender; 
 
         DB::table('registration')
         ->where('id', $id)

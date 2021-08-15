@@ -32,9 +32,9 @@ class LoginController extends Controller
     	{
                
          $request->session()->put('register', $u);
-         return view('user.home')
-         ->with('de', $u);;
-    		// return redirect('/home');
+        //  return view('user.home')
+        //  ->with('de', $u);
+    		return redirect('/user');
     	}
     }
 }

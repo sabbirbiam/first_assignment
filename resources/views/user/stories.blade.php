@@ -40,7 +40,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="/admin/home">Home</a></li>
+					<li class="active"><a href="/user">Home</a></li>
 					<li><a href="/user/stories/create">Create New Story</a></li>
 					<li><a href="/user/userstories">Show Your Story</a></li>
 					<li><a href="/user/stories">All Stories</a></li>

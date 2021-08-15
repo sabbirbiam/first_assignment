@@ -129,6 +129,14 @@
             </div>
 
             <div class="form-group">
+              <label class="col-md-3 control-label">Gender:</label>
+              <div class="col-md-8">
+                <input type="radio" id="gender2" name="gender" value="0">MALE</label>
+                <input type="radio" id="gender1" name="gender" value="1">FEMALE</label>
+              </div>
+            </div>
+
+            <div class="form-group">
               <label class="col-md-3 control-label">Password:</label>
               <div class="col-md-8">
                 <input class="form-control" type="password" name="password">
@@ -146,7 +154,7 @@
               </div>
             </div>
             @endif
-            
+
             <div class="form-group">
               <label class="col-md-3 control-label">Confirm password:</label>
               <div class="col-md-8">

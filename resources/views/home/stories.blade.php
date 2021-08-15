@@ -41,11 +41,11 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/admin/home">Home</a></li>
-					<!-- <li><a href="/user/stories/create">Create New Story</a></li> -->
 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-
+					<li><a href="/login">Login</a></li>
+					<li><a href="/home/create">create account</a></li>
 					<!-- <li><a href="/logout">LogOut</a></li> -->
 
 				</ul>
@@ -66,16 +66,16 @@
 		<!-- <div class="container-fluid"> -->
 		<table id="user_data" class="table table-bordered table-striped">
 			<tr>
-				 
+
 				<td>
-					 
+
 					<div class="div">
 
 						Posted By {{$story->user["name"]}} {{" ---  "}} Post Date: {{$story->user["created_at"]}}
 					</div>
 
 
-				</td> 
+				</td>
 			</tr>
 
 			<tr>
@@ -96,8 +96,8 @@
 
 			<tr>
 				<td>Story Picture:(Image Caption: <b>{{$story->storycaption}}</b>)
-				  
-				<img src="/pic/{{$story->storyimage}}" style="height: 150px; width: 150px;border-radius:25%;" />
+
+					<img src="/pic/{{$story->storyimage}}" style="height: 150px; width: 150px;border-radius:25%;" />
 				</td>
 			</tr>
 

@@ -59,7 +59,7 @@
 
 				<tr>
 					<td>User Name</td>
-					<td><input type="text" name="title" value="{{$user->name}}"></td>
+					<td><input type="text" name="name" value="{{$user->name}}"></td>
 				</tr>
 				<tr>
 					<td>User Email</td>
@@ -73,7 +73,15 @@
 					<td>User Phone</td>
 					<td><input type="text" name="phone" value="{{$user->phone}}"></td>
 				</tr>
-			 
+
+				<tr>
+					<td>User Gender</td>
+					<td>
+						<input type="radio" id="gender2" name="gender" value="0" {{ ($user->gender=="0")? "checked" : "" }}>MALE</label>
+						<input type="radio" id="gender1" name="gender" value="1" {{ ($user->gender=="1")? "checked" : "" }}>FEMALE</label>
+					</td>
+				</tr>
+
 				<tr>
 					<td></td>
 					<td><input style="background-color: black; color: white;" class="btn" type="submit" value="Update"></td>
