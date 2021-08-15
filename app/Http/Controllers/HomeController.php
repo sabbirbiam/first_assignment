@@ -30,6 +30,8 @@ class HomeController extends Controller
     		'name' => $request->name,
     		'phone' => $request->phone,
     		'email' => $request->email,
+    		'dob' => $request->dob,
+    		'gender' => 1,
     		'username' => $request->username,
     		'password' => $request->password,
             'type' => $request->type ?? "user",

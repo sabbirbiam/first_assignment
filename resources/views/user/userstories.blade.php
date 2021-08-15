@@ -43,6 +43,7 @@
 					<li class="active"><a href="/admin/home">Home</a></li>
 					<li><a href="/user/stories/create">Create New Story</a></li>
 					<li><a href="/user/userstories">Show Your Story</a></li>
+					<li><a href="/user/stories">All Stories</a></li>
 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">

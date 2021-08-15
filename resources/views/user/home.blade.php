@@ -25,7 +25,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/">Home</a></li>
                     <li><a href="/user/stories">Stories</a></li>
-                    <li><a href="/userInfo">User Information</a></li>
+                    <!-- <li><a href="/userInfo">User Information</a></li> -->
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/logout">LogOut</a></li>

@@ -29,7 +29,7 @@ class CreateStoryRequest extends FormRequest
 
     public function messages(){
         return [
-            'title.required'=> '**Name is required**', 
+            'title.required'=> '**Title is required**', 
             ];
     }
 }

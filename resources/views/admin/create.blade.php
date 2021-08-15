@@ -115,6 +115,20 @@
             @endif
 
             <div class="form-group">
+              <label class="col-md-3 control-label">DOB:</label>
+              <div class="col-md-8">
+                <input class="form-control" type="text" name="dob">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label">Phone:</label>
+              <div class="col-md-8">
+                <input class="form-control" type="text" name="phone">
+              </div>
+            </div>
+
+            <div class="form-group">
               <label class="col-md-3 control-label">Password:</label>
               <div class="col-md-8">
                 <input class="form-control" type="password" name="password">
