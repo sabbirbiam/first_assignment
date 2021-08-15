@@ -21,6 +21,7 @@ class UserController extends Controller
         //
         // return view('stories.index');
         $stories = Stories::with(['user', 'comment'])
+        ->where('blocked', 1)
         ->orderBy('id', 'DESC')
         ->get();
         return view('user.stories', ['stories' => $stories]);
@@ -156,7 +157,16 @@ class UserController extends Controller
         ->where('id', $id)
         ->update($data);
 
-        return redirect('/home');
+        return redirect('/user');
+    }
+
+    public function userhome(Request $request)
+    {
+        $user = DB::table('registration')
+            ->where('id', $request->session()->get('register')->id)
+            ->first();
+        return view('user.user')
+            ->with('de', $user);
     }
 
 }

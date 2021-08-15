@@ -45,7 +45,7 @@
 		</div>
 	</nav>
 
-	<h2 style="margin-left: 45%; font-family: 'Comic Sans MS', cursive, sans-serif;">Edit Story</h2>
+	<h2 style="margin-left: 45%; font-family: 'Comic Sans MS', cursive, sans-serif;">Edit User</h2>
 	<div class="container">
 
 		<br />
