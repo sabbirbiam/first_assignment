@@ -54,6 +54,19 @@
 
 	<h2 style="margin-left: 45%; font-family: 'Comic Sans MS', cursive, sans-serif;">List of User</h2>
 
+	<form method="post" action="/userstories/search">
+		{{csrf_field()}}
+		<div class="form-group">
+			<input type="text" name="title" class="form-control" id="name" placeholder="Search by name">
+		</div>
+
+		<div class="form-group">
+			<input type="text" name="tags" class="form-control" id="email" placeholder="Search by email">
+		</div>
+
+		<button type="submit" value="Login" class="btn btn-default">Search</button>
+	</form>
+
 	<div class="container">
 
 		<br />

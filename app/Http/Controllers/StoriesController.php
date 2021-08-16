@@ -272,12 +272,14 @@ class StoriesController extends Controller
         //
         // return $request;
         $stories = Stories::with(['user', 'comment'])
-            ->where('title', 'like', '%' . $request->title . '%')
-            ->orWhere('story', 'like', '%' . $request->story . '%')
-            ->orWhere('section', 'like', '%' . $request->section . '%')
-            ->orWhere('tags', 'like', '%' . $request->tags . '%')
-            ->orderBy('id', 'DESC')
-            ->get();
+            ->where('blocked', 1)
+            ->where(function ($q) use ($request) {
+                $q->where('title', 'like', '%' . $request->title . '%')
+                    ->orWhere('story', 'like', '%' . $request->story . '%')
+                    ->orWhere('section', 'like', '%' . $request->section . '%')
+                    ->orWhere('tags', 'like', '%' . $request->tags . '%');
+            })->orderBy('id', 'DESC')->get();
+        // return $stories;
         return view('user.stories', ['stories' => $stories]);
     }
 }
