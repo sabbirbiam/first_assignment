@@ -88,7 +88,7 @@
 					{{Session::get('register')->id}}
 					<div class="div">
 
-						Posted By {{$story->user["name"]}} {{" ---  "}} Post Date: {{$story->user["created_at"]}}
+						Posted By {{$story->user["name"]}} {{" ---  "}} Post Date: {{$story->created_at}}
 					</div>
 
 

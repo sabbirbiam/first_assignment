@@ -89,4 +89,7 @@ Route::group(['middleware' => ['userSess']], function () {
     Route::get('/user', 'UserController@userhome');
 
     Route::get('/user/userstories', 'UserController@userstories');
+
+    Route::post('/userstories/search', 'StoriesController@usersearch');
+
 });

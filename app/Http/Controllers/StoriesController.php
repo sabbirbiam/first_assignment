@@ -22,7 +22,7 @@ class StoriesController extends Controller
             ->orderBy('id', 'DESC')
             ->get();
         return view('stories.index', ['stories' => $stories]);
-        return response()->json($stories);
+        // return response()->json($stories);
     }
 
     public function search(Request $request)
@@ -267,5 +267,17 @@ class StoriesController extends Controller
         return redirect('/stories');
     }
 
-  
+    public function usersearch(Request $request)
+    {
+        //
+        // return $request;
+        $stories = Stories::with(['user', 'comment'])
+            ->where('title', 'like', '%' . $request->title . '%')
+            ->orWhere('story', 'like', '%' . $request->story . '%')
+            ->orWhere('section', 'like', '%' . $request->section . '%')
+            ->orWhere('tags', 'like', '%' . $request->tags . '%')
+            ->orderBy('id', 'DESC')
+            ->get();
+        return view('user.stories', ['stories' => $stories]);
+    }
 }

@@ -87,7 +87,7 @@
 		<table id="user_data" class="table table-bordered table-striped">
 			<tr>
 				<td>
-					Posted By {{$story->user["name"]}} {{" ---  "}} Post Date: {{$story->user["created_at"]}}
+					Posted By {{$story->user["name"]}} {{" ---  "}} Post Date: {{$story->created_at}}
 				</td>
 			</tr>
 

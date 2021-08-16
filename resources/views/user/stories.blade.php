@@ -57,22 +57,26 @@
 
 	<h2 style="margin-left: 45%; font-family: 'Comic Sans MS', cursive, sans-serif;">List of Stories</h2>
 
-	<!-- <form method="post" action="/stories/search">
+	<form method="post" action="/userstories/search">
 		{{csrf_field()}}
 		<div class="form-group">
-			<input type="text" name="username" class="form-control" id="uname" placeholder="User_name">
+			<input type="text" name="title" class="form-control" id="title" placeholder="Search by title">
 		</div>
 
 		<div class="form-group">
-			<input type="text" name="username2" class="form-control" id="uname" placeholder="User_name">
+			<input type="text" name="story" class="form-control" id="story" placeholder="Search By Story">
 		</div>
 
 		<div class="form-group">
-			<input type="text" name="username1" class="form-control" id="uname" placeholder="User_name">
+			<input type="text" name="section" class="form-control" id="section" placeholder="Search by Section">
+		</div>
+
+		<div class="form-group">
+			<input type="text" name="tags" class="form-control" id="tags" placeholder="Search by tags">
 		</div>
 
 		<button type="submit" value="Login" class="btn btn-default">Search</button>
-	</form> -->
+	</form>
 
 	<div class="container">
 
@@ -89,10 +93,8 @@
 				<td>
 					<div class="div">
 
-						Posted By {{$story->user["name"]}} {{" ---  "}} Post Date: {{$story->user["created_at"]}}
+						Posted By {{$story->user["name"]}} {{" ---  "}} Post Date: {{$story->created_at}}
 					</div>
-
-
 				</td>
 				@endif
 			</tr>
