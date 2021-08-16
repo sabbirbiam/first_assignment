@@ -144,27 +144,27 @@ class PostsController extends Controller
 
         return redirect('/stories');
 
-        if (!$posts) {
-            $response = [
-                'code' => 400,
-                'status' => 'failed',
-                'message' => 'Delete unsuccessful'
-            ];
+        // if (!$posts) {
+        //     $response = [
+        //         'code' => 400,
+        //         'status' => 'failed',
+        //         'message' => 'Delete unsuccessful'
+        //     ];
 
-            return response()->json([
-                'response' => $response
-            ], 400);
-        }
+        //     return response()->json([
+        //         'response' => $response
+        //     ], 400);
+        // }
 
-        $response = [
-            'code' => 200,
-            'status' => 'success',
-            'message' => 'Deleted successfully'
-        ];
+        // $response = [
+        //     'code' => 200,
+        //     'status' => 'success',
+        //     'message' => 'Deleted successfully'
+        // ];
 
-        return response()->json([
-            'response' => $response
-        ], 200);
+        // return response()->json([
+        //     'response' => $response
+        // ], 200);
     }
 
     public function postDeleteByUser($id)

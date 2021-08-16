@@ -52,7 +52,7 @@ class HomeController extends Controller
         // $stories = Stories::with(['user']);
     // return $stories;
     return view('home.stories', ['stories' => $stories]);
-    return response()->json($stories);
+    // return response()->json($stories);
     }
     
 }

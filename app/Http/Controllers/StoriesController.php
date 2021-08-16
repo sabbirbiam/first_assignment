@@ -157,7 +157,7 @@ class StoriesController extends Controller
     {
         //
 
-        return $request;
+        // return $request;
 
         $stories = Stories::find($id);
 

@@ -25,7 +25,7 @@ class UserController extends Controller
         ->orderBy('id', 'DESC')
         ->get();
         return view('user.stories', ['stories' => $stories]);
-        return response()->json($stories);
+        // return response()->json($stories);
     }
 
     public function userstories(Request $request)
@@ -37,7 +37,7 @@ class UserController extends Controller
         ->orderBy('id', 'DESC')
         ->get();
         return view('user.userstories', ['stories' => $stories]);
-        return response()->json($stories);
+        // return response()->json($stories);
     }
 
     public function create()
